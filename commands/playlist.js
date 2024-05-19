@@ -649,7 +649,7 @@ await interaction.editReply({
               .setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
               .setColor(client.config.embedColor)
               .setDescription('TimeOut!')
-              .setFooter({ text: 'YouTube - RTX GAMING' })
+              .setFooter({ text: 'YouTube - Legend_august' })
             return interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { })
 
           })
@@ -658,7 +658,7 @@ await interaction.editReply({
       }
     } catch (e) {
       console.error(e);
-      interaction.reply({ content: 'An error occurred while executing this command!', ephemeral: true }).catch(e => { })
+      interaction.reply({ content: 'Một lỗi đã xảy ra trong khi thực hiện lệnh này!', ephemeral: true }).catch(e => { })
     }
   }
 }
