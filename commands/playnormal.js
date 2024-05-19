@@ -63,8 +63,8 @@ module.exports = {
             if (!music_filter?.length > 0) return interaction.reply({ content: `No music with Name`, ephemeral: true }).catch(e => { })
                 const listembed = new EmbedBuilder()
                 .setTitle('Loading Your Album')
-                .setColor('#FF0000')
-                .setDescription('**🎸 Get ready for a musical journey!**');
+                .setColor('#007FFF')
+                .setDescription('**🎸 Sẵn sàng cho một cuộc hành trình âm nhạc!**');
             interaction.reply({ content : '', embeds: [listembed] }).catch(e => { })
 
             let songs = []
