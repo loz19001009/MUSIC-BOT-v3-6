@@ -24,22 +24,22 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "autoplay",
-  description: "Toggle the autoplay of the queue.",
+  description: "Bật/Tắt chế độ tự động phát tiếp theo trong hàng đợi.",
   options: [],
   permissions: "0x0000000000000800",
   run: async (client, interaction) => {
     try {
       const queue = client?.player?.getQueue(interaction?.guild?.id);
       if (!queue || !queue?.playing) {
-        return interaction?.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        return interaction?.reply({ content: '⚠️ Không có nhạc đang phát!!', ephemeral: true });
       }
       
       queue?.toggleAutoplay();
       
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
-        .setTitle('Your Music, Your Call!!')
-        .setDescription(queue?.autoplay ? '**✅ Autoplay ON**' : '**❌ Autoplay OFF**')
+        .setTitle('Nhạc Của Bạn, Quyết Định Của Bạn!!')
+        .setDescription(queue?.autoplay ? '**✅ Tự động phát tiếp theo BẬT**' : '**❌ Tự động phát tiếp theo TẮT**')
         
       
       interaction?.reply({ embeds: [embed] });
@@ -48,6 +48,7 @@ module.exports = {
     }
   },
 };
+
 
 /*
 
