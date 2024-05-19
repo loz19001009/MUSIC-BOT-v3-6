@@ -13,7 +13,7 @@ module.exports = async (client, queue, song) => {
     })
     .setDescription(`\n ‎ \n▶️ **Chi Tiết :** **${song?.name}**\n▶️ **Thưởng thức trải nghiệm âm nhạc tuyệt vời nhất. ** \n▶️ **Nếu liên kết bị hỏng, hãy thử đặt câu hỏi.**`)
 .setImage(queue.songs[0].thumbnail)
-    .setColor('#FF0000')
+    .setColor('#007FFF')
     .setFooter({ text: 'More info - Sử dụng lệnh /help [Legend_august]' });
      
       queue?.textChannel?.send({ embeds: [embed] }).catch(e => { });
