@@ -21,7 +21,7 @@
 const db = require("../mongoDB");
 module.exports = {
   name: "loop",
-  description: "Turns the music loop mode on or off.",
+  description: "Bật hoặc tắt chế độ lặp nhạc.",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -30,19 +30,19 @@ module.exports = {
     try {
       const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: '⚠️ Không có nhạc đang phát!!', ephemeral: true }).catch(e => { })
   
       let button = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
-          .setLabel("Queue")
+          .setLabel("Hàng Đợi")
           .setStyle(ButtonStyle.Secondary)
           .setCustomId("queue"),
         new ButtonBuilder()
-          .setLabel("Current Song")
+          .setLabel("Bài Hát Hiện Tại")
           .setStyle(ButtonStyle.Secondary)
           .setCustomId("nowplaying"),
         new ButtonBuilder()
-          .setLabel("Stop Loop!")
+          .setLabel("Tắt Lặp Lại!")
           .setStyle(ButtonStyle.Danger)
           .setCustomId("close")
       )
@@ -50,11 +50,11 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#fc4e03')
         .setAuthor({
-        name: 'Loop Your Melodies',
+        name: 'Lặp Lại Âm Nhạc Của Bạn',
         iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157318080670728283/7905-repeat.gif?ex=65182bf4&is=6516da74&hm=9ae58f40fcea5dc42a2a992bbd159d50116b3bafe5c5f7728e3a5276442efd2a&', 
         url: 'https://discord.gg/FUEHs7RCqz'
     })
-        .setDescription('**Looping it! Let the music play on and on. **')
+        .setDescription('**Lặp lại nó! Hãy để nhạc phát liên tục. **')
      
       interaction?.reply({ embeds: [embed], components: [button], fetchReply: true }).then(async Message => {
 
@@ -65,27 +65,27 @@ module.exports = {
           if (button.user.id !== interaction.user.id) return
           const queue1 = client.player.getQueue(interaction.guild.id);
           if (!queue1 || !queue1.playing) {
-            await interaction?.editReply({ content: '⚠️ No music playing!!', ephemeral: true }).catch(e => { })
+            await interaction?.editReply({ content: '⚠️ Không có nhạc đang phát!!', ephemeral: true }).catch(e => { })
             await button?.deferUpdate().catch(e => {})
           }
           switch (button.customId) {
             case 'queue':
               const success = queue.setRepeatMode(2);
-              interaction?.editReply({ content: `✅ Looping Queue!!` }).catch(e => { })
+              interaction?.editReply({ content: `✅ Lặp Lại Hàng Đợi!!` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'nowplaying':
               const success2 = queue.setRepeatMode(1);
-              interaction?.editReply({ content: `✅ Looping activated!!` }).catch(e => { })
+              interaction?.editReply({ content: `✅ Lặp Lại Đã Kích Hoạt!!` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'close':
               if (queue.repeatMode === 0) {
                 await button?.deferUpdate().catch(e => {})
-                return interaction?.editReply({ content: '⚠️ Looping already Off!!', ephemeral: true }).catch(e => { })
+                return interaction?.editReply({ content: '⚠️ Lặp Lại Đã Tắt!!', ephemeral: true }).catch(e => { })
               }
               const success4 = queue.setRepeatMode(0);
-              interaction?.editReply({ content: '▶️ Looping off' }).catch(e => { })
+              interaction?.editReply({ content: '▶️ Lặp Lại Đã Tắt' }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
           }
@@ -94,13 +94,13 @@ module.exports = {
           button = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setLabel("Timeout")
+              .setLabel("Hết Thời Gian")
               .setCustomId("timeend")
               .setDisabled(true))
 
           const embed = new EmbedBuilder()
-            .setColor('#fc5203')
-            .setTitle('▶️ Looping off!!')
+            .setColor('#2ECC71')
+            .setTitle('▶️ Lặp Lại Đã Tắt!!')
             .setTimestamp()
 
           await interaction?.editReply({ content: "", embeds: [embed], components: [button] }).catch(e => { });
@@ -112,6 +112,7 @@ module.exports = {
   }
   }
 }
+
 /*
 
   ________.__                        _____.___.___________
