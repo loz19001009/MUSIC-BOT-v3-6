@@ -33,7 +33,7 @@ module.exports = {
   run: async (client, interaction) => {
     try {
       const musicCommandsEmbed = new EmbedBuilder()
-        .setColor(#00FA9A)
+        .setColor("#00FA9A")
         .setTitle('🎸 **Các Lệnh Âm Nhạc**')
         .addFields(
           { name: '🎹 Play', value: 'Phát một bài hát từ một liên kết hoặc văn bản từ các nguồn' },
@@ -52,7 +52,7 @@ module.exports = {
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177&`); 
 
       const basicCommandsEmbed = new EmbedBuilder()
-        .setColor(#00FA9A)
+        .setColor("#00FA9A")
         .setTitle('✨ **Các Lệnh Cơ Bản**')
         .addFields(
           { name: '🏓 Ping', value: "Kiểm tra độ trễ của bot" },
