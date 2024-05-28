@@ -33,7 +33,7 @@ module.exports = {
   run: async (client, interaction) => {
     try {
       const musicCommandsEmbed = new EmbedBuilder()
-        .setColor(client.config.embedColor)
+        .setColor(#00FA9A)
         .setTitle('🎸 **Các Lệnh Âm Nhạc**')
         .addFields(
           { name: '🎹 Play', value: 'Phát một bài hát từ một liên kết hoặc văn bản từ các nguồn' },
@@ -52,7 +52,7 @@ module.exports = {
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177&`); 
 
       const basicCommandsEmbed = new EmbedBuilder()
-        .setColor(client.config.embedColor)
+        .setColor(#00FA9A)
         .setTitle('✨ **Các Lệnh Cơ Bản**')
         .addFields(
           { name: '🏓 Ping', value: "Kiểm tra độ trễ của bot" },
@@ -62,7 +62,7 @@ module.exports = {
           { name: '🎵 Now Playing', value: 'Hiển thị thông tin bài hát đang phát hiện tại' },
           { name: '🔊 Volume', value: 'Điều chỉnh âm lượng nhạc [nghe ở âm lượng cao là rủi ro]' },
         ) 
-       .setImage('https://cdn.discordapp.com/attachments/1150827819547504741/1168917372267151370/standard.gif?ex=65538222&is=65410d22&hm=b4994392f44679da41fc9304eb69deaa3769e136057556deec0db69ae8d33a97&')
+       .setImage('https://24.media.tumblr.com/tumblr_mbvun2tUgH1r996ixo1_500.gif')
       
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
